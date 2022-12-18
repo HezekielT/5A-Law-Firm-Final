@@ -1,6 +1,7 @@
 const express = require('express')
 
-const cors = require('cors')
+const cors = require('cors');
+const path = require('path');
 const port = process.env.PORT || 5000;
 
 require('dotenv').config()
@@ -38,7 +39,7 @@ io.on("connection", (socket) => {
     socket.broadcast.emit('get-delete-schedule', id);
   })
 })
-
+// const __dirname1 = path
 if(process.env.NODE_ENV ===  'production') {
   app.use(express.static(path.join(__dirname,"frontend/build")));
 
