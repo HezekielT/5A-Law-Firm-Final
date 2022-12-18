@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Navbar from '../../client/src/components/Navbar';
+import Calendar from '../../client/src/components/calendar';
+import { SocketProvider } from '../../client/src/contexts/SocketProvider';
+import { ScheduleProvider } from '../../client/src/contexts/ScheduleProvider';
 
-function App() {
+function App () {
+  // logic goes here...
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // JSX goes here...
+    <SocketProvider>
+      <ScheduleProvider>
+        <Navbar />
+        <Calendar />
+        {/* <AbushakirTrial /> */}
+      </ScheduleProvider>
+    </SocketProvider>
+  )
 }
 
 export default App;
