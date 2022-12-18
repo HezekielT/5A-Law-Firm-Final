@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000;
 require('dotenv').config()
 
 const app = express()
-const server = require('http').createServer(app);
+const server = app.listen(port);
 
 // app.use(cors);
 app.use(express.json());
@@ -47,4 +47,4 @@ if(process.env.NODE_ENV ===  'production') {
   } )
 }
 
-server.listen(port);
+// server.listen(port);
