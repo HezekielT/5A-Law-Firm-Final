@@ -10,6 +10,7 @@ const app = express()
 const server = app.listen(port);
 
 // app.use(cors);
+app.use(cors({   origin: true,   credentials: true }));
 app.use(express.json());
 
 // app.get('/', (req, res) => {
@@ -22,7 +23,7 @@ const io = require('socket.io')(server, {
     origin: ['http://localhost:3000'],
   }
 })
-
+// io.set('origins','*:*');
 io.on("connection", (socket) => {
   const id = socket.handshake.query.id
 
