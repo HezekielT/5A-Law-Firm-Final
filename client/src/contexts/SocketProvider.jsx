@@ -18,7 +18,7 @@ export function SocketProvider({ children }) {
   useEffect(() => {
     if(id!= null) {
       const newSocket = io(
-        'https://guarded-river-63805.herokuapp',
+        'https://guarded-river-63805.herokuapp.com',
         { query: {id}}
       )
       setSocket(newSocket)
