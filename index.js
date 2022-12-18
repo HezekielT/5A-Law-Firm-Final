@@ -6,7 +6,7 @@ const port = process.env.PORT || 5000;
 require('dotenv').config()
 
 const app = express()
-const server = app.listen(port)
+const server = require('http').createServer(app);
 
 // app.use(cors);
 app.use(express.json());
@@ -40,9 +40,11 @@ io.on("connection", (socket) => {
 })
 
 if(process.env.NODE_ENV ===  'production') {
-  app.use(express.static('frontend/build'))
+  server.use(express.static('frontend/build'))
 
-  app.get('*', (req, res) => {
+  server.get('*', (req, res) => {
       res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
   } )
 }
+
+server.listen(port);
