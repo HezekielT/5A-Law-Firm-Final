@@ -30,7 +30,7 @@ io.on("connection", (socket) => {
   socket.join(id)
 
   socket.on('create-schedule', (id, year, month, day, title, time, detail, schedule, privilege) => {
-    io.emit('get-create-schedule', id, year, month, day, title, time, detail, schedule, privilege);
+    socket.broadcast.emit('get-create-schedule', id, year, month, day, title, time, detail, schedule, privilege);
     // hopefully i can do the saving part here.
     // jkj
   });
