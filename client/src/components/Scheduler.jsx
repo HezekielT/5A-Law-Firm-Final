@@ -58,11 +58,13 @@ const Scheduler = ({year, month, day}) => {
     const saveScheduleData = () => {
       const id = uuidV4();
       // if(year >= actualDate.year && month >= actualDate.month && day >= actualDate.day)
-      createSchedule(id, year, month, day, scheduleData.title, scheduleData.detail, scheduleData.time, scheduleData.schedule, true);
       if(scheduleData.schedule !== 'onlyMe') {
         // create your socket connection
         getId(id);
         socket.emit("create-schedule", id, year, month, day, scheduleData.title, scheduleData.detail, scheduleData.time, scheduleData.schedule, false);
+      } else {
+        createSchedule(id, year, month, day, scheduleData.title, scheduleData.detail, scheduleData.time, scheduleData.schedule, true);
+
       }
       setAddSchedule(!addSchedule);
     }
