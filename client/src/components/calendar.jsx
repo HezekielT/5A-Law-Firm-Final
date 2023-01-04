@@ -246,6 +246,7 @@ const Calendar = () => {
             </div>
           ))}
           {etc.monthDays(false, true).map(dates => (
+            // compare the date with the actual today's date
             actualDate.day == dates[2] && actualDate.month == dates[1] && actualDate.year == dates[0] ? 
             <>
               <div onClick={() => {updateView(true, dates[2])}} className="flex flex-col bg-brightSlate text-white border border-brightSlate pb-4">
